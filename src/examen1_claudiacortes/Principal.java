@@ -743,7 +743,18 @@ public class Principal extends javax.swing.JFrame {
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
 
         String Mensaje = JOptionPane.showInputDialog("Ingrese su mensaje a este usuario.");
-        if (Destinatario.getRol().equals("Familiar")) {
+       
+        Destinatario = (Personas) CB_Usuarios3.getSelectedItem();
+        Emisor = (Personas) CB_Usuarios6.getSelectedItem();
+        Destinatario.setMensajes(new Mensaje(Destinatario, Mensaje, Emisor));
+        Emisor.setMensajes(new Mensaje(Destinatario, Mensaje, Emisor));
+        Object[] newrow = {
+            Mensaje, Destinatario.getNombre(), Emisor.getNombre()
+        };
+        DefaultTableModel Modelo2 = (DefaultTableModel) tablamsj.getModel();
+        Modelo2.addRow(newrow);
+        tablamsj.setModel(Modelo2);
+if (Destinatario.getRol().equals("Familiar")) {
             if (((Familiar) Destinatario).getRelacion().equals("Esposo")) {
                 Mensaje = cifradoCesar(Mensaje, 3);
                 System.out.println("PRUEBA DEL ENCRIPTADO Cesar" + Mensaje);
@@ -752,23 +763,12 @@ public class Principal extends javax.swing.JFrame {
 
             }
         }
-        Destinatario = (Personas) CB_Usuarios3.getSelectedItem();
-        Emisor = (Personas) CB_Usuarios6.getSelectedItem();
-        Destinatario.setMensajes(new Mensaje(Destinatario, Mensaje, Emisor));
-        //  Destinatario.getRol()//Nombre;
-        Emisor.setMensajes(new Mensaje(Destinatario, Mensaje, Emisor));
-        Object[] newrow = {
-            Mensaje, Destinatario.getNombre(), Emisor.getNombre()
-        };
-        DefaultTableModel Modelo2 = (DefaultTableModel) tablamsj.getModel();
-        Modelo2.addRow(newrow);
-        tablamsj.setModel(Modelo2);
-
 
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void CB_Usuarios6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CB_Usuarios6ItemStateChanged
-        String Mensaje = JOptionPane.showInputDialog("Ingrese su mensaje a este usuario.");
+       /* if (evt.getStateChange()==2) {
+             String Mensaje = JOptionPane.showInputDialog("Ingrese su mensaje a este usuario.");
         Destinatario = (Personas) CB_Usuarios3.getSelectedItem();
         Emisor = (Personas) CB_Usuarios6.getSelectedItem();
         Object[] newrow = {
@@ -777,6 +777,7 @@ public class Principal extends javax.swing.JFrame {
         DefaultTableModel Modelo2 = (DefaultTableModel) tablamsj.getModel();
         Modelo2.addRow(newrow);
         tablamsj.setModel(Modelo2);
+        }*/
     }//GEN-LAST:event_CB_Usuarios6ItemStateChanged
 
     private void CB_Usuarios3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CB_Usuarios3ItemStateChanged
