@@ -32,5 +32,10 @@ public class Mensaje {
     public void setMensaje(String Mensaje) {
         this.Mensaje = Mensaje;
     }
+
+    @Override
+    public String toString() {
+        return "Destinatario=" + Destinatario + "Mensaje=" + Mensaje + '}';
+    }
    
 }

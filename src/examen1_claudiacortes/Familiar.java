@@ -10,24 +10,24 @@ package examen1_claudiacortes;
  * @author Claudia Cortes
  */
 public class Familiar extends Personas{
-    private String Hermana;
+    private String Relacion;
     private String Trabajo;
     private int  altura;
      private int  Peso;
 
     public Familiar(String Hermana, String Trabajo, int altura, int Peso) {
-        this.Hermana = Hermana;
+        this.Relacion = Hermana;
         this.Trabajo = Trabajo;
         this.altura = altura;
         this.Peso = Peso;
     }
 
-    public String getHermana() {
-        return Hermana;
+    public String getRelacion() {
+        return Relacion;
     }
 
-    public void setHermana(String Hermana) {
-        this.Hermana = Hermana;
+    public void setRelacion(String Hermana) {
+        this.Relacion = Hermana;
     }
 
     public String getTrabajo() {
@@ -56,7 +56,7 @@ public class Familiar extends Personas{
 
     @Override
     public String toString() {
-        return "Familiar{" + "Hermana=" + Hermana + ", Trabajo=" + Trabajo + ", altura=" + altura + ", Peso=" + Peso + '}';
+        return "Familiar{" + "Relacion=" + Relacion + ", Trabajo=" + Trabajo + ", altura=" + altura + ", Peso=" + Peso + '}';
     }
      
 }
