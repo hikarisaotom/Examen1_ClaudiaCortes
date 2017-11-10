@@ -584,6 +584,7 @@ public class Principal extends javax.swing.JFrame {
                     CB_Usuarios.setModel(Modelo);
                     CB_Usuarios2.setModel(Modelo);
                     CB_Usuarios3.setModel(Modelo);
+                      CB_Usuarios6.setModel(Modelo);
                     guardado = true;
                     if (CB_Familiares.getSelectedItem().toString().equals("Papa")) {
                         papa--;
@@ -608,10 +609,10 @@ public class Principal extends javax.swing.JFrame {
                     TF_Salario.setText("");
                     TF_Horario1.setText("");
                     TF_tiempoT1.setText("");
-                     Personas S = (Personas) CB_Usuarios2.getSelectedItem();
+                    Personas S = (Personas) CB_Usuarios2.getSelectedItem();
                     Object[] newrow = {
-                   S.getRol(),S.getNombre()
-                };
+                        S.getRol(), S.getNombre()
+                    };
 
                     DefaultTableModel Modelo2 = (DefaultTableModel) tabla2.getModel();
                     Modelo2.addRow(newrow);
@@ -628,7 +629,7 @@ public class Principal extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Ocurrio un error y no se guardaron los datos.");
-            
+
         }
     }//GEN-LAST:event_jButton1MouseClicked
 
@@ -673,36 +674,36 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_rb_m1ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-       
-        String Contra=JOptionPane.showInputDialog("Ingrese la contraseña");
-         if (Contra.equals(ContraMaestra)) {/*TERMINAR*/
-        Seleccionado.setE_Civil(tf_Estadocivil.getText());
-        //tf_trabajo1.getText()
 
-        //ocupacion1.getText();
-        Seleccionado.setNombre(tf_nombre1.getText());
-        Seleccionado.setEdad(Integer.parseInt(tf_edad1.getText()));
-        Seleccionado.setE_Civil(tf_Estadocivil1.getText());
-        Seleccionado.setId(Integer.parseInt(tf_id1.getText()));
-        //tf_altura1.getText();
-        //CB_Familiares1.setSelectedItem(Seleccionado.getRol());
-        // TF_Salario1.getText();
-        //TF_Horario1.getText();
-        //TF_tiempoT2.getText();
-        /**/
-        tf_Estadocivil1.setText("");
-        tf_trabajo1.setText("");
-        ocupacion1.setText("");
-        tf_nombre1.setText("");
-        tf_edad1.setText("");
-        tf_altura1.setText("");
-        CB_Familiares1.setSelectedIndex(0);
-        TF_Salario1.setText("");
-        TF_Horario1.setText("");
-        TF_tiempoT2.setText("");
-         }else{
-             JOptionPane.showMessageDialog(this,"CONTRASEÑA INCORRECTA");
-         }
+        String Contra = JOptionPane.showInputDialog("Ingrese la contraseña");
+        if (Contra.equals(ContraMaestra)) {/*TERMINAR*/
+            Seleccionado.setE_Civil(tf_Estadocivil.getText());
+            //tf_trabajo1.getText()
+
+            //ocupacion1.getText();
+            Seleccionado.setNombre(tf_nombre1.getText());
+            Seleccionado.setEdad(Integer.parseInt(tf_edad1.getText()));
+            Seleccionado.setE_Civil(tf_Estadocivil1.getText());
+            Seleccionado.setId(Integer.parseInt(tf_id1.getText()));
+            //tf_altura1.getText();
+            //CB_Familiares1.setSelectedItem(Seleccionado.getRol());
+            // TF_Salario1.getText();
+            //TF_Horario1.getText();
+            //TF_tiempoT2.getText();
+            /**/
+            tf_Estadocivil1.setText("");
+            tf_trabajo1.setText("");
+            ocupacion1.setText("");
+            tf_nombre1.setText("");
+            tf_edad1.setText("");
+            tf_altura1.setText("");
+            CB_Familiares1.setSelectedIndex(0);
+            TF_Salario1.setText("");
+            TF_Horario1.setText("");
+            TF_tiempoT2.setText("");
+        } else {
+            JOptionPane.showMessageDialog(this, "CONTRASEÑA INCORRECTA");
+        }
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void CB_Usuarios2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CB_Usuarios2ItemStateChanged
@@ -725,54 +726,57 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_CB_Usuarios2ItemStateChanged
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-       String Contra=JOptionPane.showInputDialog("Ingrese la contraseña");
-         if (Contra.equals(ContraMaestra)) {
-                    JOptionPane.showMessageDialog(this, "Guardando Contraseña");
-                    if(tabla2.getSelectedRow()>=0){
-           DefaultTableModel Modelo=(DefaultTableModel)tabla2.getModel();
-           Modelo.removeRow(tabla2.getSelectedRow());
-           tabla2.setModel(Modelo);
-       }
-         }else{
+        String Contra = JOptionPane.showInputDialog("Ingrese la contraseña");
+        if (Contra.equals(ContraMaestra)) {
+            JOptionPane.showMessageDialog(this, "Guardando Contraseña");
+            if (tabla2.getSelectedRow() >= 0) {
+                DefaultTableModel Modelo = (DefaultTableModel) tabla2.getModel();
+                Modelo.removeRow(tabla2.getSelectedRow());
+                tabla2.setModel(Modelo);
+            }
+        } else {
             JOptionPane.showMessageDialog(this, "CONTRASEÑA INCORRECTA");
-         }
-      ///   
+        }
+        ///   
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-          
-            String Mensaje = JOptionPane.showInputDialog("Ingrese su mensaje a este usuario.");
-             if (Destinatario.getRol().equals("Familiar")) {
-                 if (((Familiar) Destinatario).getRelacion().equals("Esposo")) {
-                     Mensaje = cifradoCesar(Mensaje, 3);
-                       System.out.println("PRUEBA DEL ENCRIPTADO Cesar"+Mensaje);
-                     Mensaje = descifradoCesar(Mensaje, 3);
-                      System.out.println("Desencriptado Cesar"+Mensaje);
-                      
-                 }
-             }
-            Destinatario = (Personas) CB_Usuarios3.getSelectedItem();
-        DefaultComboBoxModel Modelo = (DefaultComboBoxModel) CB_Usuarios3.getModel();
 
-        CB_Usuarios6.setModel(Modelo);
+        String Mensaje = JOptionPane.showInputDialog("Ingrese su mensaje a este usuario.");
+        if (Destinatario.getRol().equals("Familiar")) {
+            if (((Familiar) Destinatario).getRelacion().equals("Esposo")) {
+                Mensaje = cifradoCesar(Mensaje, 3);
+                System.out.println("PRUEBA DEL ENCRIPTADO Cesar" + Mensaje);
+                Mensaje = descifradoCesar(Mensaje, 3);
+                System.out.println("Desencriptado Cesar" + Mensaje);
+
+            }
+        }
+        Destinatario = (Personas) CB_Usuarios3.getSelectedItem();
         Emisor = (Personas) CB_Usuarios6.getSelectedItem();
-        Destinatario.setMensajes(new Mensaje(Destinatario, Mensaje));
-          //  Destinatario.getRol()//Nombre;
-          
-            Object[] newrow = {
-                Destinatario.getRol(), Destinatario.getNombre(), Mensaje
-            };
-            DefaultTableModel Modelo2 = (DefaultTableModel) tablamsj.getModel();
-            Modelo2.addRow(newrow);
-            tablamsj.setModel(Modelo2);
-             
-        
+        Destinatario.setMensajes(new Mensaje(Destinatario, Mensaje, Emisor));
+        //  Destinatario.getRol()//Nombre;
+        Emisor.setMensajes(new Mensaje(Destinatario, Mensaje, Emisor));
+        Object[] newrow = {
+            Mensaje, Destinatario.getNombre(), Emisor.getNombre()
+        };
+        DefaultTableModel Modelo2 = (DefaultTableModel) tablamsj.getModel();
+        Modelo2.addRow(newrow);
+        tablamsj.setModel(Modelo2);
+
+
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void CB_Usuarios6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CB_Usuarios6ItemStateChanged
-
-     
-
+        String Mensaje = JOptionPane.showInputDialog("Ingrese su mensaje a este usuario.");
+        Destinatario = (Personas) CB_Usuarios3.getSelectedItem();
+        Emisor = (Personas) CB_Usuarios6.getSelectedItem();
+        Object[] newrow = {
+            Mensaje, Destinatario.getNombre(), Emisor.getNombre()
+        };
+        DefaultTableModel Modelo2 = (DefaultTableModel) tablamsj.getModel();
+        Modelo2.addRow(newrow);
+        tablamsj.setModel(Modelo2);
     }//GEN-LAST:event_CB_Usuarios6ItemStateChanged
 
     private void CB_Usuarios3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CB_Usuarios3ItemStateChanged
@@ -783,8 +787,7 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel4MouseClicked
 
-    
-   /* public static String EncriptadoCesar(String Cadena) {
+    /* public static String EncriptadoCesar(String Cadena) {
         String Letra = "";
         String Palabra = "";
         int Ascii = 0;
@@ -855,7 +858,6 @@ public class Principal extends javax.swing.JFrame {
        return S;
     }
      */
-  
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -980,9 +982,10 @@ private int Mama = 1;
     private boolean bandera2 = true;
     private String ContraMaestra = "1234";
     private Personas Seleccionado;
-   private Personas Destinatario;
-      private Personas Emisor;
-   private static Random Ran =new Random();
+    private Personas Destinatario;
+    private Personas Emisor;
+    private static Random Ran = new Random();
+
     //método para cifrar el texto
     public static String cifradoCesar(String texto, int codigo) {
         StringBuilder cifrado = new StringBuilder();

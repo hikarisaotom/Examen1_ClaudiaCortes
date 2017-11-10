@@ -7,14 +7,24 @@ package examen1_claudiacortes;
  */
 public class Mensaje {
    protected Personas Destinatario;
+      protected Personas Remitente;
+
+    public Personas getRemitente() {
+        return Remitente;
+    }
+
+    public void setRemitente(Personas Remitente) {
+        this.Remitente = Remitente;
+    }
    protected String Mensaje;
 
     public Mensaje() {
     }
 
-    public Mensaje(Personas Destinatario, String Mensaje) {
+    public Mensaje(Personas Destinatario, String Mensaje,Personas Remitente) {
         this.Destinatario = Destinatario;
         this.Mensaje = Mensaje;
+        this.Remitente=Remitente;
     }
 
     public Personas getDestinatario() {
