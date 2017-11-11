@@ -56,7 +56,7 @@ public class Objetos_Hogar extends Objetos{
 
     @Override
     public String toString() {
-        return "Objetos_Hogar{" + "Tiempo_Vida=" + Tiempo_Vida + ", Area_Casa=" + Area_Casa + ", Instrucciones=" + Instrucciones + ", Fecha=" + Fecha + '}';
+        return super.toString()+"Objetos_Hogar{" + "Tiempo_Vida=" + Tiempo_Vida + ", Area_Casa=" + Area_Casa + ", Instrucciones=" + Instrucciones + ", Fecha=" + Fecha + '}';
     }
    
 }

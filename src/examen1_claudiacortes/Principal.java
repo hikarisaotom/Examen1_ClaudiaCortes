@@ -154,6 +154,25 @@ public class Principal extends javax.swing.JFrame {
         jLabel32 = new javax.swing.JLabel();
         CB_Usuarios3 = new javax.swing.JComboBox<>();
         jLabel33 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        CB_OBJETOS = new javax.swing.JComboBox<>();
+        CB_Usuarios1 = new javax.swing.JComboBox<>();
+        combotipo1 = new javax.swing.JComboBox<>();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
+        calidad1 = new javax.swing.JTextField();
+        tamano1 = new javax.swing.JTextField();
+        marca1 = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        Onjeto_Nombre1 = new javax.swing.JTextArea();
+        jLabel46 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
+        jLabel47 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -451,7 +470,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(tf_edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 180, -1));
         jPanel1.add(tf_Estadocivil, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 180, -1));
 
-        cb_Tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Familiar", "Empleado", " " }));
+        cb_Tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Familiar", "Empleado" }));
         cb_Tipo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cb_TipoItemStateChanged(evt);
@@ -622,6 +641,66 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Mensajes", jPanel4);
 
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        CB_OBJETOS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jPanel6.add(CB_OBJETOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 352, -1));
+
+        jPanel6.add(CB_Usuarios1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 240, -1));
+
+        combotipo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Zapato", "Ropa", "Objeto Hogar", " " }));
+        jPanel6.add(combotipo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, -1, -1));
+
+        jLabel40.setText("Tipo");
+        jPanel6.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+
+        jLabel41.setText("Dueño");
+        jPanel6.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+
+        jLabel42.setText("Marca");
+        jPanel6.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+
+        jLabel43.setText("Tamano");
+        jPanel6.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+
+        jLabel44.setText("Calidad");
+        jPanel6.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+
+        jLabel45.setText("Color");
+        jPanel6.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
+        jPanel6.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 120, 20));
+        jPanel6.add(calidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 90, -1));
+        jPanel6.add(tamano1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 150, -1));
+        jPanel6.add(marca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 120, -1));
+
+        Onjeto_Nombre1.setColumns(20);
+        Onjeto_Nombre1.setRows(5);
+        jScrollPane4.setViewportView(Onjeto_Nombre1);
+
+        jPanel6.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, 160));
+
+        jLabel46.setText("Descripcion");
+        jPanel6.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, -1, -1));
+
+        jButton8.setText("Editar");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
+        jPanel6.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 170, 40));
+
+        jLabel47.setText("Objeto a Modificar");
+        jPanel6.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 20, 120, 20));
+
+        jTabbedPane1.addTab("Modificar Objetos", jPanel6);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -749,7 +828,9 @@ public class Principal extends javax.swing.JFrame {
                     tf_edad.setText("");
                     tf_altura.setText("");
                     CB_Familiares.setSelectedIndex(0);
-                    CB_Familiares.enable(true);
+                    tf_peso.setText("");
+                    tf_id.setText("");
+                   // CB_Familiares.enable(true);
                     TF_Salario.setText("");
                     TF_Horario1.setText("");
                     TF_tiempoT1.setText("");
@@ -998,6 +1079,9 @@ public class Principal extends javax.swing.JFrame {
                String Contra = JOptionPane.showInputDialog("Ingrese la contraseña");
                if (Contra.equals(ContraMaestra)) {
             JOptionPane.showMessageDialog(this,"OBJETO GUARDADO EXITOSAMENTE");
+            DefaultComboBoxModel Modelo = (DefaultComboBoxModel)  CB_OBJETOS.getModel();
+            Modelo.addElement(O);
+            CB_OBJETOS.setModel(Modelo);
         }else{
             JOptionPane.showMessageDialog(this,"Contraseña incorrecta");
         }
@@ -1014,6 +1098,23 @@ public class Principal extends javax.swing.JFrame {
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
          jButton6.setBackground(JColorChooser.showDialog(this, "SELECIONE UN COLOR", Color.yellow));
     }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+     
+     String Contra=JOptionPane.showInputDialog("Ingrese la contraseña");
+        if (Contra.equals(ContraMaestra)) {
+             ObjetoSeleccionado.setTamano(Integer.parseInt(tamano1.getText()));
+             ObjetoSeleccionado.setCalidad(Integer.parseInt(calidad1.getText()));
+             ObjetoSeleccionado.setColor(jButton7.getBackground());
+             ObjetoSeleccionado.setDescripcion(Onjeto_Nombre1.getText());
+             ObjetoSeleccionado.setP(((Personas)CB_Usuarios1.getSelectedItem()));
+        }
+      
+    }//GEN-LAST:event_jButton8MouseClicked
 
    
     public static void main(String args[]) {
@@ -1051,11 +1152,14 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CB_Familiares;
     private javax.swing.JComboBox<String> CB_Familiares1;
+    private javax.swing.JComboBox<String> CB_OBJETOS;
     private javax.swing.JComboBox<String> CB_Remitentes;
     private javax.swing.JComboBox<String> CB_Usuarios;
+    private javax.swing.JComboBox<String> CB_Usuarios1;
     private javax.swing.JComboBox<String> CB_Usuarios2;
     private javax.swing.JComboBox<String> CB_Usuarios3;
     private javax.swing.JTextArea Onjeto_Nombre;
+    private javax.swing.JTextArea Onjeto_Nombre1;
     private javax.swing.JTextField TF_Horario1;
     private javax.swing.JTextField TF_Horario2;
     private javax.swing.JTextField TF_Salario;
@@ -1063,15 +1167,19 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField TF_tiempoT1;
     private javax.swing.JTextField TF_tiempoT2;
     private javax.swing.JTextField calidad;
+    private javax.swing.JTextField calidad1;
     private javax.swing.JComboBox<String> cb_Tipo;
     private javax.swing.JComboBox<String> cb_Tipo1;
     private javax.swing.JComboBox<String> combotipo;
+    private javax.swing.JComboBox<String> combotipo1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1106,6 +1214,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1116,11 +1232,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField marca;
+    private javax.swing.JTextField marca1;
     private javax.swing.JTextField ocupacion;
     private javax.swing.JTextField ocupacion1;
     private javax.swing.JRadioButton rb_f;
@@ -1130,6 +1249,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTable tabla2;
     private javax.swing.JTable tablamsj;
     private javax.swing.JTextField tamano;
+    private javax.swing.JTextField tamano1;
     private javax.swing.JTextField tf_Estadocivil;
     private javax.swing.JTextField tf_Estadocivil1;
     private javax.swing.JTextField tf_altura;
@@ -1156,54 +1276,34 @@ private int Mama = 1;
     private Personas Seleccionado;
     private Personas Destinatario;
     private Personas Emisor;
+    private Objetos ObjetoSeleccionado;
   public static void Codificar(String Mensaje1) {
-        System.out.println("------CIFRADOS------");
-//String MiMensaje=Mensaje1;
-//        System.out.println("Mensaje: "+MiMensaje);
-//         String x=EncriptadoCesar(MiMensaje,3);
-//         //Cifrado Cesar
-//         System.out.println("Cifrado César: "+x);
-//         CifradoTrans Cv=new CifradoTrans(x,"abc");
-//         //Cifrado por Transpocicion del cifrado cesar de cesar
-//         String Y=Cv.Cifrar();
-//         System.out.println("Cifrado por trasposición: "+Y);
-//         CifradoTrans cv=new CifradoTrans(Y,"abc");
-//         CifradoVigenere cc=new CifradoVigenere();
-//         //Cifrado Vigenere del Cifrado por Transpocicion del cifrado cesar de cesar
-//         String Z=cc.Cifrar(Y);
-//         System.out.println("Cifrado Vigenere: "+Z);
-//         String Z1=cc.DesCifrar(Z);
-//         System.out.println("Descifrado Vigenere: "+Z1);
-//         String Y2=cv.DesCifrar();
-//         System.out.println("Descifrado por trasposición: "+Y2);
-//         String x2=descifradoCesar(Y2,3);
-//         System.out.println("Descifrado: "+x2);
-//        // miver.setText(MiMensaje);
-//    }
+        System.out.println("------CODIFICACION DE LOS DATOS------");
         String Mensaje = Mensaje1;
-        String x = EncriptadoCesar(Mensaje, 3);
-        //Cifrado Cesar
-        System.out.println("Cifrado César: " + x);
-        CifradoTrans Cv = new CifradoTrans(x, "abc");
-        //Cifrado por Transpocicion del cifrado cesar de cesar
-        String Y = Cv.Cifrar();
-        System.out.println("Cifrado por trasposición: " + Y);
-        CifradoVigenere cc = new CifradoVigenere(Y, "abc");
-        // CifradoVigenere cc=new CifradoVigenere(Y);
-        //Cifrado Vigenere del Cifrado por Transpocicion del cifrado cesar de cesar
-        cc.setTxT(Y);
+        String CESAR = EncriptadoCesar(Mensaje, 3);
+        //CESAR
+        System.out.println("CIFRANDO");
+        System.out.println("→César: " + CESAR);
+        CifradoTrans CIFTRANS = new CifradoTrans(CESAR, "abc");
+        //TRASPOSICION-CESAR
+        String TRANS = CIFTRANS.Cifrar();
+        System.out.println("→ Trasposición: " + TRANS);
+        CifradoVigenere CIFVIG = new CifradoVigenere(TRANS, "abc");
+        // CifradoVigenere C_C=new CifradoVigenere(Y);
+        //DESCODIFICACIONES
+        CIFVIG.setTxT(TRANS);
         //String Z=cc.getTxT();
-        String Z = cc.Cifrar();
-        System.out.println("Cifrado Vigenere: " + Z);
-        cc.setTxT(Z);
-        String Z1 = cc.DesCifrar();
-        System.out.println("Descifrado Vigenere: " + Z1);
-        Cv.setTxT(Z1);
-        String Y2 = Cv.DesCifrar();
-        System.out.println("Descifrado por trasposición: " + Y2);
-        String x2 = descifradoCesar(Y2, 3);
-        System.out.println("Descifrado: " + x2);
-        //miver.setText(MiMensaje);
+        String VIG = CIFVIG.Cifrar();
+        System.out.println("→Vigenere: " + VIG);
+        CIFVIG.setTxT(VIG);
+        String DESVIG = CIFVIG.DesCifrar();
+        System.out.println("DESCIFRADO");
+        System.out.println("→Vigenere: " + DESVIG);
+        CIFTRANS.setTxT(DESVIG);
+        String DESTRANS = CIFTRANS.DesCifrar();
+        System.out.println("→Trasposición: " + DESTRANS);
+        String DESCES = descifradoCesar(DESTRANS, 3);
+        System.out.println("Descifrado FINAL: " + DESCES);
     }
 
     public static String EncriptadoCesar(String msm,int Desplazamiento){

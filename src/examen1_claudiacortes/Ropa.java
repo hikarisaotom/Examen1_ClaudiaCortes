@@ -42,7 +42,7 @@ public class Ropa extends Objetos{
 
     @Override
     public String toString() {
-        return "Ropa{" + "Talla=" + Talla + ", Material=" + Material + ", Pais=" + Pais + '}';
+        return super.toString()+"Ropa{" + "Talla=" + Talla + ", Material=" + Material + ", Pais=" + Pais + '}';
     }
 
 }
