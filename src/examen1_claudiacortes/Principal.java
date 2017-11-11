@@ -265,7 +265,7 @@ public class Principal extends javax.swing.JFrame {
                 jButton2MouseClicked(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 120, -1));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 80, -1));
 
         jLabel38.setText("Usuario a Editar");
         jPanel2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
@@ -276,7 +276,7 @@ public class Principal extends javax.swing.JFrame {
                 jButton9MouseClicked(evt);
             }
         });
-        jPanel2.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
+        jPanel2.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
 
         jTabbedPane1.addTab("Editar", jPanel2);
 
@@ -406,10 +406,6 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(49, 49, 49))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(177, 177, 177))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -421,7 +417,10 @@ public class Principal extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel39)
                         .addGap(48, 48, 48)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(201, 201, 201)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -458,9 +457,9 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(jLabel35)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40))))
+                        .addGap(37, 37, 37))))
         );
 
         jTabbedPane1.addTab("Crear Objeto", jPanel5);
@@ -805,6 +804,7 @@ public class Principal extends javax.swing.JFrame {
             }
             if (bandera2) {
                 String Contra = JOptionPane.showInputDialog("Ingrese la contraseña");
+                 Codificar(Contra);
                 if (Contra.equals(ContraMaestra)) {
                     JOptionPane.showMessageDialog(this, "Contacto Guardado");
 
@@ -944,6 +944,7 @@ public class Principal extends javax.swing.JFrame {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
 
         String Contra = JOptionPane.showInputDialog("Ingrese la contraseña");
+        Codificar(Contra);
         if (Contra.equals(ContraMaestra)) {/*TERMINAR*/
             Seleccionado.setE_Civil(tf_Estadocivil.getText());
             //tf_trabajo1.getText()
@@ -1018,6 +1019,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         String Contra = JOptionPane.showInputDialog("Ingrese la contraseña");
+         Codificar(Contra);
         if (Contra.equals(ContraMaestra)) {
             JOptionPane.showMessageDialog(this, "Guardando Contraseña");
             if (tabla2.getSelectedRow() >= 0) {
@@ -1114,6 +1116,7 @@ public class Principal extends javax.swing.JFrame {
             ((Personas) CB_Usuarios.getSelectedItem()).setP(P);
             if (Bandera) {
                 String Contra = JOptionPane.showInputDialog("Ingrese la contraseña");
+                 Codificar(Contra);
                 if (Contra.equals(ContraMaestra)) {
                     JOptionPane.showMessageDialog(this, "OBJETO GUARDADO EXITOSAMENTE");
                     DefaultComboBoxModel Modelo = (DefaultComboBoxModel) CB_OBJETOS.getModel();
@@ -1149,6 +1152,7 @@ public class Principal extends javax.swing.JFrame {
 
         ObjetoSeleccionado = (Objetos) CB_OBJETOS.getSelectedItem();
         String Contra = JOptionPane.showInputDialog("Ingrese la contraseña");
+         Codificar(Contra);
         try {
             if (Contra.equals(ContraMaestra)) {
                 ObjetoSeleccionado.setTamano(Integer.parseInt(tamano1.getText()));
@@ -1198,6 +1202,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
        String Contra=JOptionPane.showInputDialog("INGRESE LA CONTRASEÑA");
+       Codificar(Contra);
         if (Contra.equals(ContraMaestra)) {
            
         DefaultComboBoxModel Modelo = (DefaultComboBoxModel) CB_Usuarios2.getModel();
@@ -1377,7 +1382,7 @@ private int Mama = 1;
     private int Hermano = 1;
     private boolean bandera;
     private boolean bandera2 = true;
-    private String ContraMaestra = "1234";
+    private String ContraMaestra = "clau";
     private Personas Seleccionado;
     private Personas Destinatario;
     private Personas Emisor;
