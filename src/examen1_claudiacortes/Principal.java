@@ -1,6 +1,7 @@
 package examen1_claudiacortes;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 import javax.swing.DefaultComboBoxModel;
@@ -19,8 +20,13 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
+     private Personas KIM =new Personas("KIM",15,1,"F","Casada","Propietaria"); 
+    private static Random Ran = new Random();
+    private ArrayList<Personas> R=new ArrayList();
     public Principal() {
+        
         initComponents();
+        R.add(KIM);
          TF_Salario.enable(false);
            // bandera = false;
             TF_Salario.enable(false);//
@@ -34,11 +40,18 @@ public class Principal extends javax.swing.JFrame {
            // tf_edad.enable(false);
             ocupacion.enable(true);//
             tf_trabajo.enable(false);
-        String Encriptado= EncriptadoCesar("HOLA",4);
-                System.out.println(Encriptado);
-                System.out.println(descifradoCesar(Encriptado,4));
-                System.out.println("VIGENERE");
-                CifradoVigenere X=new CifradoVigenere("HOLA","ABC");
+       // String Encriptado= EncriptadoCesar("HOLA",4);
+        //CifradoVigenere CV=new CifradoVigenere(Encriptado,"ABC");
+        //Encriptado=CV.Cifrar();
+       // CifradoTrans CT=new CifradoTrans(Encriptado,"ABC");
+       // Encriptado=CT.Cifrar();
+        //Encriptado=CT.DesCifrar();
+       
+        
+               // System.out.println(Encriptado);
+               // System.out.println(descifradoCesar(Encriptado,4));
+               // System.out.println("VIGENERE");
+                
     }
 
     /*PEDIRLE LA CONTRASEÑA CUANDO AGREGA*/
@@ -137,7 +150,7 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tablamsj = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
-        CB_Usuarios6 = new javax.swing.JComboBox<>();
+        CB_Remitentes = new javax.swing.JComboBox<>();
         jLabel32 = new javax.swing.JLabel();
         CB_Usuarios3 = new javax.swing.JComboBox<>();
         jLabel33 = new javax.swing.JLabel();
@@ -271,6 +284,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(tabla2);
 
+        jLabel31.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel31.setText("Tu lista de Contactos Actual.");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -280,25 +294,25 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addComponent(jButton4))
+                        .addContainerGap()
+                        .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
+                        .addGap(20, 20, 20)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(43, Short.MAX_VALUE))
+                        .addGap(180, 180, 180)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(22, 22, 22)
                 .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addComponent(jButton4)
+                .addGap(36, 36, 36)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
         );
 
@@ -549,9 +563,9 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        CB_Usuarios6.addItemListener(new java.awt.event.ItemListener() {
+        CB_Remitentes.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                CB_Usuarios6ItemStateChanged(evt);
+                CB_RemitentesItemStateChanged(evt);
             }
         });
 
@@ -570,31 +584,32 @@ public class Principal extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(0, 18, Short.MAX_VALUE)
                         .addComponent(jLabel32)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(CB_Usuarios3, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(94, 94, 94)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CB_Usuarios3, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel33)
-                        .addGap(28, 28, 28)
-                        .addComponent(CB_Usuarios6, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CB_Remitentes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jButton3)
-                                .addGap(186, 186, 186)))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                                .addGap(183, 183, 183)
+                                .addComponent(jButton3))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 26, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CB_Usuarios6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CB_Remitentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel32)
                     .addComponent(jLabel33)
                     .addComponent(CB_Usuarios3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -697,15 +712,23 @@ public class Principal extends javax.swing.JFrame {
             if (bandera2) {
                 String Contra = JOptionPane.showInputDialog("Ingrese la contraseña");
                 if (Contra.equals(ContraMaestra)) {
-                    JOptionPane.showMessageDialog(this, "Guardando Contraseña");
+                    JOptionPane.showMessageDialog(this, "Contacto Guardado");
 
                     //System.out.println("Guardando Tu contacto");
                     DefaultComboBoxModel Modelo = (DefaultComboBoxModel) CB_Usuarios.getModel();
                     Modelo.addElement(X);
+                     DefaultComboBoxModel Remitente = (DefaultComboBoxModel) CB_Remitentes.getModel();
+                     R.add(X);
+                      for (Personas personas : R) {
+                       Remitente.addElement(personas);
+                    }
+                       CB_Remitentes.setModel(Remitente);
                     CB_Usuarios.setModel(Modelo);
                     CB_Usuarios2.setModel(Modelo);
                     CB_Usuarios3.setModel(Modelo);
-                      CB_Usuarios6.setModel(Modelo);
+                     
+                     
+                     
                     guardado = true;
                     if (CB_Familiares.getSelectedItem().toString().equals("Papa")) {
                         papa--;
@@ -760,19 +783,6 @@ public class Principal extends javax.swing.JFrame {
 
     private void cb_TipoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_TipoItemStateChanged
         if (cb_Tipo.getSelectedItem().toString().equals("Familiar")) {
-            TF_Salario.enable(false);
-         
-            TF_Salario.enable(false);//
-            CB_Familiares.enable(true);
-            TF_Horario1.enable(false);//
-           TF_Salario.enable(false);
-            TF_tiempoT1.enable(false);//
-            tf_altura.enable(true);
-            tf_peso.enable(true);
-          //  tf_edad.enable(false);
-           // tf_edad.enable(false);
-            ocupacion.enable(true);//
-            tf_trabajo.enable(true);
             /*TF_Salario.enable(false);//
             CB_Familiares.enable(true);
             TF_Horario1.enable(false);//
@@ -783,6 +793,18 @@ public class Principal extends javax.swing.JFrame {
            // tf_edad.enable(true);
             ocupacion.enable(false);//
              TF_Salario.enable(false);*/
+            TF_Salario.enable(false);
+            //TF_Salario.enable(false);//
+            CB_Familiares.enable(true);
+            TF_Horario1.enable(false);//
+           TF_Salario.enable(false);
+            TF_tiempoT1.enable(false);//
+            tf_altura.enable(true);
+            tf_peso.enable(true);
+          //  tf_edad.enable(false);
+           // tf_edad.enable(false);
+            ocupacion.enable(true);//
+            tf_trabajo.enable(true);
             bandera = true;
         } else {
             bandera=false;
@@ -896,7 +918,7 @@ public class Principal extends javax.swing.JFrame {
         String Mensaje = JOptionPane.showInputDialog("Ingrese su mensaje a este usuario.");
        
         Destinatario = (Personas) CB_Usuarios3.getSelectedItem();
-        Emisor = (Personas) CB_Usuarios6.getSelectedItem();
+        Emisor = (Personas) CB_Remitentes.getSelectedItem();
         Destinatario.setMensajes(new Mensaje(Destinatario, Mensaje, Emisor));
         Emisor.setMensajes(new Mensaje(Destinatario, Mensaje, Emisor));
         Object[] newrow = {
@@ -907,6 +929,8 @@ public class Principal extends javax.swing.JFrame {
         tablamsj.setModel(Modelo2);
             if (Destinatario.getRol().equals("Familiar")) {
             if (((Familiar) Destinatario).getRelacion().equals("Esposo")) {
+                System.out.println("ENCRIPTANDO MENSAJE DE KIM AL ESPOSO");
+                Codificar(Mensaje);
                /*AGREGAR EL CIFRADO CESAR*/
                /*String Encriptado= EncriptadoCesar(Mensaje,4);
                 System.out.println(Encriptado);
@@ -917,7 +941,7 @@ public class Principal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton3MouseClicked
 
-    private void CB_Usuarios6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CB_Usuarios6ItemStateChanged
+    private void CB_RemitentesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CB_RemitentesItemStateChanged
        /* if (evt.getStateChange()==2) {
              String Mensaje = JOptionPane.showInputDialog("Ingrese su mensaje a este usuario.");
         Destinatario = (Personas) CB_Usuarios3.getSelectedItem();
@@ -929,7 +953,7 @@ public class Principal extends javax.swing.JFrame {
         Modelo2.addRow(newrow);
         tablamsj.setModel(Modelo2);
         }*/
-    }//GEN-LAST:event_CB_Usuarios6ItemStateChanged
+    }//GEN-LAST:event_CB_RemitentesItemStateChanged
 
     private void CB_Usuarios3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CB_Usuarios3ItemStateChanged
         // TODO add your handling code here:
@@ -991,77 +1015,7 @@ public class Principal extends javax.swing.JFrame {
          jButton6.setBackground(JColorChooser.showDialog(this, "SELECIONE UN COLOR", Color.yellow));
     }//GEN-LAST:event_jButton6MouseClicked
 
-    /* public static String EncriptadoCesar(String Cadena) {
-        String Letra = "";
-        String Palabra = "";
-        int Ascii = 0;
-        Cadena = Cadena.toLowerCase();
-        for (int i = 0; i < Cadena.length(); i++) {
-            Ascii = (int) Cadena.charAt(i);
-            if (Ascii == 120) {//X
-                Ascii = 97;
-            } else if (Ascii == 121) {//Y
-                Ascii = 98;
-            } else if (Ascii == 122) {//Z
-                Ascii = 99;
-            }else{
-                Ascii=Ascii+3;
-            }
-            Letra += "" + (char) Ascii;
-            Palabra+=Letra;
-            
-        }
-
-        return Palabra;
-    }
-    
-    
-     public static String DesencriptarCesar(String Cadena){
-      String Letra = "";
-        String Palabra = "";
-        int Ascii = 0;
-        Cadena = Cadena.toLowerCase();
-        for (int i = 0; i < Cadena.length(); i++) {
-            Ascii = (int) Cadena.charAt(i);
-            if (Ascii == 97) {//X
-                Ascii = 120;
-            } else if (Ascii == 98) {//Y
-                Ascii = 121;
-            } else if (Ascii == 99) {//Z
-                Ascii = 122;
-            }else{
-                Ascii=Ascii-3;
-            }
-            Letra += "" + (char) Ascii;
-            Palabra+=Letra;
-            
-        }
-              
-       return Palabra;
-    }
-     public static String Encriptadotrasposicon(){
-       String S="";
-       return S;
-    }
-    
-    
-     public static String Desencriptartrasposicon(){
-       String S="";
-       
-       return S;
-    }
-       public static String Encriptadovigenere(){
-       String S="";
-       return S;
-    }
-    
-    
-     public static String Desencriptarvigenere(){
-       String S="";
-       
-       return S;
-    }
-     */
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1097,10 +1051,10 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CB_Familiares;
     private javax.swing.JComboBox<String> CB_Familiares1;
+    private javax.swing.JComboBox<String> CB_Remitentes;
     private javax.swing.JComboBox<String> CB_Usuarios;
     private javax.swing.JComboBox<String> CB_Usuarios2;
     private javax.swing.JComboBox<String> CB_Usuarios3;
-    private javax.swing.JComboBox<String> CB_Usuarios6;
     private javax.swing.JTextArea Onjeto_Nombre;
     private javax.swing.JTextField TF_Horario1;
     private javax.swing.JTextField TF_Horario2;
@@ -1202,9 +1156,57 @@ private int Mama = 1;
     private Personas Seleccionado;
     private Personas Destinatario;
     private Personas Emisor;
-    private static Random Ran = new Random();
+  public static void Codificar(String Mensaje1) {
+        System.out.println("------CIFRADOS------");
+//String MiMensaje=Mensaje1;
+//        System.out.println("Mensaje: "+MiMensaje);
+//         String x=EncriptadoCesar(MiMensaje,3);
+//         //Cifrado Cesar
+//         System.out.println("Cifrado César: "+x);
+//         CifradoTrans Cv=new CifradoTrans(x,"abc");
+//         //Cifrado por Transpocicion del cifrado cesar de cesar
+//         String Y=Cv.Cifrar();
+//         System.out.println("Cifrado por trasposición: "+Y);
+//         CifradoTrans cv=new CifradoTrans(Y,"abc");
+//         CifradoVigenere cc=new CifradoVigenere();
+//         //Cifrado Vigenere del Cifrado por Transpocicion del cifrado cesar de cesar
+//         String Z=cc.Cifrar(Y);
+//         System.out.println("Cifrado Vigenere: "+Z);
+//         String Z1=cc.DesCifrar(Z);
+//         System.out.println("Descifrado Vigenere: "+Z1);
+//         String Y2=cv.DesCifrar();
+//         System.out.println("Descifrado por trasposición: "+Y2);
+//         String x2=descifradoCesar(Y2,3);
+//         System.out.println("Descifrado: "+x2);
+//        // miver.setText(MiMensaje);
+//    }
+        String Mensaje = Mensaje1;
+        String x = EncriptadoCesar(Mensaje, 3);
+        //Cifrado Cesar
+        System.out.println("Cifrado César: " + x);
+        CifradoTrans Cv = new CifradoTrans(x, "abc");
+        //Cifrado por Transpocicion del cifrado cesar de cesar
+        String Y = Cv.Cifrar();
+        System.out.println("Cifrado por trasposición: " + Y);
+        CifradoVigenere cc = new CifradoVigenere(Y, "abc");
+        // CifradoVigenere cc=new CifradoVigenere(Y);
+        //Cifrado Vigenere del Cifrado por Transpocicion del cifrado cesar de cesar
+        cc.setTxT(Y);
+        //String Z=cc.getTxT();
+        String Z = cc.Cifrar();
+        System.out.println("Cifrado Vigenere: " + Z);
+        cc.setTxT(Z);
+        String Z1 = cc.DesCifrar();
+        System.out.println("Descifrado Vigenere: " + Z1);
+        Cv.setTxT(Z1);
+        String Y2 = Cv.DesCifrar();
+        System.out.println("Descifrado por trasposición: " + Y2);
+        String x2 = descifradoCesar(Y2, 3);
+        System.out.println("Descifrado: " + x2);
+        //miver.setText(MiMensaje);
+    }
 
-    public String EncriptadoCesar(String msm,int Desplazamiento){
+    public static String EncriptadoCesar(String msm,int Desplazamiento){
         StringBuilder cifrado = new StringBuilder();
         Desplazamiento = Desplazamiento % 26;
         for (int i = 0; i < msm.length(); i++) {
@@ -1245,4 +1247,5 @@ private int Mama = 1;
         }
         return cifrado.toString();
     }
+    
 }

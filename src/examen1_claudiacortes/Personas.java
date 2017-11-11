@@ -83,7 +83,7 @@ public class Personas extends Objetos{
 
     @Override
     public String toString() {
-        return "Personas{" + "Nombre=" + Nombre + ", edad=" + edad + ", id=" + id + ", Sexo=" + Sexo + ", E_Civil=" + E_Civil + ", Mensajes=" + Mensajes + ", Rol=" + Rol + '}';
+        return "Nombre=" + Nombre ;
     }
     
     

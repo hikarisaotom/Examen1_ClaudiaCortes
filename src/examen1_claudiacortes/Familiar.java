@@ -56,7 +56,7 @@ public class Familiar extends Personas{
 
     @Override
     public String toString() {
-        return "Familiar{" + "Relacion=" + Relacion + ", Trabajo=" + Trabajo + ", altura=" + altura + ", Peso=" + Peso + '}';
+        return "Familiar-Nombre"+super.getNombre();
     }
      
 }
