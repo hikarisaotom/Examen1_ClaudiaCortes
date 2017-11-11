@@ -20,6 +20,11 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        String Encriptado= EncriptadoCesar("HOLA",4);
+                System.out.println(Encriptado);
+                System.out.println(descifradoCesar(Encriptado,4));
+                System.out.println("VIGENERE");
+                CifradoVigenere X=new CifradoVigenere("HOLA","ABC");
     }
 
     /*PEDIRLE LA CONTRASEÑA CUANDO AGREGA*/
@@ -68,6 +73,17 @@ public class Principal extends javax.swing.JFrame {
         CB_Usuarios = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        combotipo = new javax.swing.JComboBox<>();
+        jLabel34 = new javax.swing.JLabel();
+        marca = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Onjeto_Nombre = new javax.swing.JTextArea();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        tamano = new javax.swing.JTextField();
+        jLabel37 = new javax.swing.JLabel();
+        calidad = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -258,7 +274,7 @@ public class Principal extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66)
@@ -270,7 +286,28 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel3.setText("Dueño");
 
-        jLabel17.setText("jLabel17");
+        jLabel17.setText("Tipo");
+
+        combotipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Zapato", "Ropa", "Objeto Hogar", " " }));
+
+        jLabel34.setText("Marca");
+
+        jButton5.setText("Guardar");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+
+        Onjeto_Nombre.setColumns(20);
+        Onjeto_Nombre.setRows(5);
+        jScrollPane1.setViewportView(Onjeto_Nombre);
+
+        jLabel35.setText("Descripcion");
+
+        jLabel36.setText("Tamano");
+
+        jLabel37.setText("Calidad");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -284,8 +321,32 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(CB_Usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel17)))
+                        .addGap(188, 188, 188)
+                        .addComponent(jButton5))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel36)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel34)
+                                    .addComponent(jLabel37))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tamano)
+                            .addComponent(combotipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(marca)
+                            .addComponent(calidad))
+                        .addGap(8, 8, 8)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(252, 252, 252)
+                                .addComponent(jLabel35))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                .addGap(121, 121, 121)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19)))))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -295,9 +356,32 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CB_Usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel17)
-                .addContainerGap(260, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(combotipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel34)
+                            .addComponent(marca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel36)
+                            .addComponent(tamano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel37)
+                            .addComponent(calidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                        .addComponent(jButton5)
+                        .addGap(77, 77, 77))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel35)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(128, 128, 128))))
         );
 
         jTabbedPane1.addTab("Crear Objeto", jPanel5);
@@ -481,7 +565,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Mensajes", jPanel4);
@@ -754,13 +838,13 @@ public class Principal extends javax.swing.JFrame {
         DefaultTableModel Modelo2 = (DefaultTableModel) tablamsj.getModel();
         Modelo2.addRow(newrow);
         tablamsj.setModel(Modelo2);
-if (Destinatario.getRol().equals("Familiar")) {
+            if (Destinatario.getRol().equals("Familiar")) {
             if (((Familiar) Destinatario).getRelacion().equals("Esposo")) {
-                Mensaje = cifradoCesar(Mensaje, 3);
-                System.out.println("PRUEBA DEL ENCRIPTADO Cesar" + Mensaje);
-                Mensaje = descifradoCesar(Mensaje, 3);
-                System.out.println("Desencriptado Cesar" + Mensaje);
-
+               /*AGREGAR EL CIFRADO CESAR*/
+               /*String Encriptado= EncriptadoCesar(Mensaje,4);
+                System.out.println(Encriptado);
+                System.out.println(descifradoCesar(Encriptado,4));*/
+                
             }
         }
 
@@ -787,6 +871,29 @@ if (Destinatario.getRol().equals("Familiar")) {
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel4MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+       String Nombre =Onjeto_Nombre.getText();
+       String Marca =marca.getText();
+       int tamano1= Integer.parseInt(tamano.getText());
+       int Calidad=Integer.parseInt(calidad.getText());
+       Objetos O= new Objetos();
+        if (combotipo.getSelectedItem().toString().equals("Zapato") ) {
+            Zapatos Z=new Zapatos();
+            O=Z;
+            
+        }else if (combotipo.getSelectedItem().toString().equals("Ropa")){
+            Ropa R= new Ropa();
+            O=R;
+        }else{
+            Objetos_Hogar OH= new Objetos_Hogar();
+            O=OH;
+        }
+        O.setMarca(Marca);
+        O.setDescripcion(Nombre);
+        O.setTamano(tamano1);
+        O.setCalidad(Calidad);
+    }//GEN-LAST:event_jButton5MouseClicked
 
     /* public static String EncriptadoCesar(String Cadena) {
         String Letra = "";
@@ -898,18 +1005,22 @@ if (Destinatario.getRol().equals("Familiar")) {
     private javax.swing.JComboBox<String> CB_Usuarios2;
     private javax.swing.JComboBox<String> CB_Usuarios3;
     private javax.swing.JComboBox<String> CB_Usuarios6;
+    private javax.swing.JTextArea Onjeto_Nombre;
     private javax.swing.JTextField TF_Horario1;
     private javax.swing.JTextField TF_Horario2;
     private javax.swing.JTextField TF_Salario;
     private javax.swing.JTextField TF_Salario1;
     private javax.swing.JTextField TF_tiempoT1;
     private javax.swing.JTextField TF_tiempoT2;
+    private javax.swing.JTextField calidad;
     private javax.swing.JComboBox<String> cb_Tipo;
     private javax.swing.JComboBox<String> cb_Tipo1;
+    private javax.swing.JComboBox<String> combotipo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -937,6 +1048,10 @@ if (Destinatario.getRol().equals("Familiar")) {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -948,9 +1063,11 @@ if (Destinatario.getRol().equals("Familiar")) {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField marca;
     private javax.swing.JTextField ocupacion;
     private javax.swing.JTextField ocupacion1;
     private javax.swing.JRadioButton rb_f;
@@ -959,6 +1076,7 @@ if (Destinatario.getRol().equals("Familiar")) {
     private javax.swing.JRadioButton rb_m1;
     private javax.swing.JTable tabla2;
     private javax.swing.JTable tablamsj;
+    private javax.swing.JTextField tamano;
     private javax.swing.JTextField tf_Estadocivil;
     private javax.swing.JTextField tf_Estadocivil1;
     private javax.swing.JTextField tf_altura;
@@ -987,29 +1105,27 @@ private int Mama = 1;
     private Personas Emisor;
     private static Random Ran = new Random();
 
-    //método para cifrar el texto
-    public static String cifradoCesar(String texto, int codigo) {
+    public String EncriptadoCesar(String msm,int Desplazamiento){
         StringBuilder cifrado = new StringBuilder();
-        codigo = codigo % 26;
-        for (int i = 0; i < texto.length(); i++) {
-            if (texto.charAt(i) >= 'a' && texto.charAt(i) <= 'z') {
-                if ((texto.charAt(i) + codigo) > 'z') {
-                    cifrado.append((char) (texto.charAt(i) + codigo - 26));
+        Desplazamiento = Desplazamiento % 26;
+        for (int i = 0; i < msm.length(); i++) {
+            if (msm.charAt(i) >= 'a' && msm.charAt(i) <= 'z') {
+                if ((msm.charAt(i) + Desplazamiento) > 'z') {
+                    cifrado.append((char) (msm.charAt(i) + Desplazamiento - 26));
                 } else {
-                    cifrado.append((char) (texto.charAt(i) + codigo));
+                    cifrado.append((char) (msm.charAt(i) + Desplazamiento));
                 }
-            } else if (texto.charAt(i) >= 'A' && texto.charAt(i) <= 'Z') {
-                if ((texto.charAt(i) + codigo) > 'Z') {
-                    cifrado.append((char) (texto.charAt(i) + codigo - 26));
+            } else if (msm.charAt(i) >= 'A' && msm.charAt(i) <= 'Z') {
+                if ((msm.charAt(i) + Desplazamiento) > 'Z') {
+                    cifrado.append((char) (msm.charAt(i) + Desplazamiento - 26));
                 } else {
-                    cifrado.append((char) (texto.charAt(i) + codigo));
+                    cifrado.append((char) (msm.charAt(i) + Desplazamiento));
                 }
             }
         }
         return cifrado.toString();
     }
-
-    //método para descifrar el texto
+    
     public static String descifradoCesar(String texto, int codigo) {
         StringBuilder cifrado = new StringBuilder();
         codigo = codigo % 26;
