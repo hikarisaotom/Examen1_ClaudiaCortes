@@ -20,38 +20,37 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
-     private Personas KIM =new Personas("KIM",15,1,"F","Casada","Propietaria"); 
+    private Personas KIM = new Personas("KIM", 15, 1, "F", "Casada", "Propietaria");
     private static Random Ran = new Random();
-    private ArrayList<Personas> R=new ArrayList();
+    private ArrayList<Personas> R = new ArrayList();
+
     public Principal() {
-        
+
         initComponents();
         R.add(KIM);
-         TF_Salario.enable(false);
-           // bandera = false;
-            TF_Salario.enable(false);//
-            CB_Familiares.enable(false);
-            TF_Horario1.enable(false);//
-           TF_Salario.enable(false);
-            TF_tiempoT1.enable(false);//
-            tf_altura.enable(false);
-            tf_peso.enable(false);
-          //  tf_edad.enable(false);
-           // tf_edad.enable(false);
-            ocupacion.enable(true);//
-            tf_trabajo.enable(false);
-       // String Encriptado= EncriptadoCesar("HOLA",4);
+        TF_Salario.enable(false);
+        // bandera = false;
+        TF_Salario.enable(false);//
+        CB_Familiares.enable(false);
+        TF_Horario1.enable(false);//
+        TF_Salario.enable(false);
+        TF_tiempoT1.enable(false);//
+        tf_altura.enable(false);
+        tf_peso.enable(false);
+        //  tf_edad.enable(false);
+        // tf_edad.enable(false);
+        ocupacion.enable(true);//
+        tf_trabajo.enable(false);
+        // String Encriptado= EncriptadoCesar("HOLA",4);
         //CifradoVigenere CV=new CifradoVigenere(Encriptado,"ABC");
         //Encriptado=CV.Cifrar();
-       // CifradoTrans CT=new CifradoTrans(Encriptado,"ABC");
-       // Encriptado=CT.Cifrar();
+        // CifradoTrans CT=new CifradoTrans(Encriptado,"ABC");
+        // Encriptado=CT.Cifrar();
         //Encriptado=CT.DesCifrar();
-       
-        
-               // System.out.println(Encriptado);
-               // System.out.println(descifradoCesar(Encriptado,4));
-               // System.out.println("VIGENERE");
-                
+
+        // System.out.println(Encriptado);
+        // System.out.println(descifradoCesar(Encriptado,4));
+        // System.out.println("VIGENERE");
     }
 
     /*PEDIRLE LA CONTRASEÑA CUANDO AGREGA*/
@@ -92,6 +91,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel38 = new javax.swing.JLabel();
+        jButton9 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -187,6 +187,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel2.add(CB_Usuarios2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 380, -1));
 
         cb_Tipo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Familiar", "Empleado", " " }));
+        cb_Tipo1.setEnabled(false);
         cb_Tipo1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cb_Tipo1ItemStateChanged(evt);
@@ -264,10 +265,18 @@ public class Principal extends javax.swing.JFrame {
                 jButton2MouseClicked(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 120, -1));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 120, -1));
 
         jLabel38.setText("Usuario a Editar");
         jPanel2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jButton9.setText("ELIMINAR");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
 
         jTabbedPane1.addTab("Editar", jPanel2);
 
@@ -802,18 +811,17 @@ public class Principal extends javax.swing.JFrame {
                     //System.out.println("Guardando Tu contacto");
                     DefaultComboBoxModel Modelo = (DefaultComboBoxModel) CB_Usuarios.getModel();
                     Modelo.addElement(X);
-                     DefaultComboBoxModel Remitente = (DefaultComboBoxModel) CB_Remitentes.getModel();
-                     R.add(X);
-                      for (Personas personas : R) {
-                       Remitente.addElement(personas);
+                    DefaultComboBoxModel Remitente = (DefaultComboBoxModel) CB_Remitentes.getModel();
+                    R.add(X);
+                    for (Personas personas : R) {
+                        Remitente.addElement(personas);
                     }
-                       CB_Remitentes.setModel(Remitente);
+                    CB_Remitentes.setModel(Remitente);
                     CB_Usuarios.setModel(Modelo);
                     CB_Usuarios2.setModel(Modelo);
                     CB_Usuarios3.setModel(Modelo);
-                     CB_Usuarios1.setModel(Modelo);
-                     
-                     
+                    CB_Usuarios1.setModel(Modelo);
+
                     guardado = true;
                     if (CB_Familiares.getSelectedItem().toString().equals("Papa")) {
                         papa--;
@@ -836,7 +844,7 @@ public class Principal extends javax.swing.JFrame {
                     CB_Familiares.setSelectedIndex(0);
                     tf_peso.setText("");
                     tf_id.setText("");
-                   // CB_Familiares.enable(true);
+                    // CB_Familiares.enable(true);
                     TF_Salario.setText("");
                     TF_Horario1.setText("");
                     TF_tiempoT1.setText("");
@@ -884,28 +892,28 @@ public class Principal extends javax.swing.JFrame {
             //TF_Salario.enable(false);//
             CB_Familiares.enable(true);
             TF_Horario1.enable(false);//
-           TF_Salario.enable(false);
+            TF_Salario.enable(false);
             TF_tiempoT1.enable(false);//
             tf_altura.enable(true);
             tf_peso.enable(true);
-          //  tf_edad.enable(false);
-           // tf_edad.enable(false);
+            //  tf_edad.enable(false);
+            // tf_edad.enable(false);
             ocupacion.enable(true);//
             tf_trabajo.enable(true);
             bandera = true;
         } else {
-            bandera=false;
-             TF_Salario.enable(true);
-           // bandera = false;
+            bandera = false;
+            TF_Salario.enable(true);
+            // bandera = false;
             TF_Salario.enable(true);//
             CB_Familiares.enable(false);
             TF_Horario1.enable(true);//
-           TF_Salario.enable(true);
+            TF_Salario.enable(true);
             TF_tiempoT1.enable(true);//
             tf_altura.enable(false);
             tf_peso.enable(false);
-          //  tf_edad.enable(false);
-           // tf_edad.enable(false);
+            //  tf_edad.enable(false);
+            // tf_edad.enable(false);
             ocupacion.enable(false);//
             tf_trabajo.enable(false);
             /*  TF_Salario.enable(true);
@@ -969,7 +977,7 @@ public class Principal extends javax.swing.JFrame {
     private void CB_Usuarios2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CB_Usuarios2ItemStateChanged
         if (evt.getStateChange() == 2) {
             Seleccionado = (Personas) CB_Usuarios2.getSelectedItem();
-            tf_Estadocivil.setText(Seleccionado.getE_Civil());
+            tf_Estadocivil1.setText(Seleccionado.getE_Civil());
             //  tf_trabajo.setText();
             // ocupacion.setText();
             tf_nombre1.setText(Seleccionado.getNombre());
@@ -981,6 +989,29 @@ public class Principal extends javax.swing.JFrame {
             } else {
                 rb_f1.setSelected(true);
                 rb_m1.setSelected(false);
+            }
+            
+            if (Seleccionado instanceof Familiar) {
+                cb_Tipo1.setSelectedIndex(0);
+                tf_altura1.setText(""+((Familiar)Seleccionado).getAltura());
+                 tf_trabajo1.setText(""+((Familiar)Seleccionado).getTrabajo());
+                 tf_peso1.setText(""+((Familiar)Seleccionado).getPeso());
+                if (((Familiar) Seleccionado).getRelacion().equals("Papa")) {
+                    CB_Familiares1.setSelectedIndex(0);
+                } else if (((Familiar) Seleccionado).getRelacion().equals("Mama")) {
+                    CB_Familiares1.setSelectedIndex(1);
+                } else if (((Familiar) Seleccionado).getRelacion().equals("Hermana")) {
+                    CB_Familiares1.setSelectedIndex(2);
+                } else if (((Familiar) Seleccionado).getRelacion().equals("Hermano")) {
+                    CB_Familiares1.setSelectedIndex(4);
+                } else {//esposo
+                    CB_Familiares1.setSelectedIndex(3);
+                }
+            }else{
+                 cb_Tipo1.setSelectedIndex(1);
+                   ocupacion1.setText(((Personal)Seleccionado).getOcupacion());
+                  TF_Horario1.setText(((Personal)Seleccionado).getHorario_Trabajo());
+                   TF_tiempoT2.setText(""+((Personal)Seleccionado).getTiempo_Trabajo());
             }
         }
     }//GEN-LAST:event_CB_Usuarios2ItemStateChanged
@@ -1003,7 +1034,7 @@ public class Principal extends javax.swing.JFrame {
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
 
         String Mensaje = JOptionPane.showInputDialog("Ingrese su mensaje a este usuario.");
-       
+
         Destinatario = (Personas) CB_Usuarios3.getSelectedItem();
         Emisor = (Personas) CB_Remitentes.getSelectedItem();
         Destinatario.setMensajes(new Mensaje(Destinatario, Mensaje, Emisor));
@@ -1014,22 +1045,22 @@ public class Principal extends javax.swing.JFrame {
         DefaultTableModel Modelo2 = (DefaultTableModel) tablamsj.getModel();
         Modelo2.addRow(newrow);
         tablamsj.setModel(Modelo2);
-            if (Destinatario.getRol().equals("Familiar")) {
+        if (Destinatario.getRol().equals("Familiar")) {
             if (((Familiar) Destinatario).getRelacion().equals("Esposo")) {
                 System.out.println("ENCRIPTANDO MENSAJE DE KIM AL ESPOSO");
                 Codificar(Mensaje);
-               /*AGREGAR EL CIFRADO CESAR*/
-               /*String Encriptado= EncriptadoCesar(Mensaje,4);
+                /*AGREGAR EL CIFRADO CESAR*/
+ /*String Encriptado= EncriptadoCesar(Mensaje,4);
                 System.out.println(Encriptado);
                 System.out.println(descifradoCesar(Encriptado,4));*/
-                
+
             }
         }
 
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void CB_RemitentesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CB_RemitentesItemStateChanged
-       /* if (evt.getStateChange()==2) {
+        /* if (evt.getStateChange()==2) {
              String Mensaje = JOptionPane.showInputDialog("Ingrese su mensaje a este usuario.");
         Destinatario = (Personas) CB_Usuarios3.getSelectedItem();
         Emisor = (Personas) CB_Usuarios6.getSelectedItem();
@@ -1051,55 +1082,55 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel4MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-     boolean Bandera=true;
-     try {
-         Color C;
-          C=jButton6.getBackground();
-        String Nombre =Onjeto_Nombre.getText();
-       String Marca =marca.getText();
-       int tamano1= Integer.parseInt(tamano.getText());
-       int Calidad=Integer.parseInt(calidad.getText());
-       Objetos O= new Objetos();
-        if (Calidad<1||Calidad>10) {
-            bandera=false;
-        }
-        if (combotipo.getSelectedItem().toString().equals("Zapato") ) {
-            Zapatos Z=new Zapatos();
-            O=Z;
-            
-        }else if (combotipo.getSelectedItem().toString().equals("Ropa")){
-            Ropa R= new Ropa();
-            O=R;
-        }else{
-            Objetos_Hogar OH= new Objetos_Hogar();
-            O=OH;
-        }
-        O.setMarca(Marca);
-        O.setDescripcion(Nombre);
-        O.setTamano(tamano1);
-        O.setCalidad(Calidad);
-        O.setColor(C);
-        Personas P= ((Personas)CB_Usuarios.getSelectedItem());
-        ((Personas)CB_Usuarios.getSelectedItem()).setP(P);
-         if (Bandera) {
-               String Contra = JOptionPane.showInputDialog("Ingrese la contraseña");
-               if (Contra.equals(ContraMaestra)) {
-            JOptionPane.showMessageDialog(this,"OBJETO GUARDADO EXITOSAMENTE");
-            DefaultComboBoxModel Modelo = (DefaultComboBoxModel)  CB_OBJETOS.getModel();
-            Modelo.addElement(O);
-            CB_OBJETOS.setModel(Modelo);
-                   Onjeto_Nombre.setText("");
-                   marca.setText("");
-                   tamano.setText("");
-                   calidad.setText("");
-                   jButton6.setBackground(Color.GRAY);
-        }else{
-            JOptionPane.showMessageDialog(this,"Contraseña incorrecta");
-        }
-         }else{
-            JOptionPane.showMessageDialog(this,"Error en la calidad");
-         }
-          } catch (Exception e) {
+        boolean Bandera = true;
+        try {
+            Color C;
+            C = jButton6.getBackground();
+            String Nombre = Onjeto_Nombre.getText();
+            String Marca = marca.getText();
+            int tamano1 = Integer.parseInt(tamano.getText());
+            int Calidad = Integer.parseInt(calidad.getText());
+            Objetos O = new Objetos();
+            if (Calidad < 1 || Calidad > 10) {
+                bandera = false;
+            }
+            if (combotipo.getSelectedItem().toString().equals("Zapato")) {
+                Zapatos Z = new Zapatos();
+                O = Z;
+
+            } else if (combotipo.getSelectedItem().toString().equals("Ropa")) {
+                Ropa R = new Ropa();
+                O = R;
+            } else {
+                Objetos_Hogar OH = new Objetos_Hogar();
+                O = OH;
+            }
+            O.setMarca(Marca);
+            O.setDescripcion(Nombre);
+            O.setTamano(tamano1);
+            O.setCalidad(Calidad);
+            O.setColor(C);
+            Personas P = ((Personas) CB_Usuarios.getSelectedItem());
+            ((Personas) CB_Usuarios.getSelectedItem()).setP(P);
+            if (Bandera) {
+                String Contra = JOptionPane.showInputDialog("Ingrese la contraseña");
+                if (Contra.equals(ContraMaestra)) {
+                    JOptionPane.showMessageDialog(this, "OBJETO GUARDADO EXITOSAMENTE");
+                    DefaultComboBoxModel Modelo = (DefaultComboBoxModel) CB_OBJETOS.getModel();
+                    Modelo.addElement(O);
+                    CB_OBJETOS.setModel(Modelo);
+                    Onjeto_Nombre.setText("");
+                    marca.setText("");
+                    tamano.setText("");
+                    calidad.setText("");
+                    jButton6.setBackground(Color.GRAY);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Contraseña incorrecta");
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Error en la calidad");
+            }
+        } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Ocurrio un error y no se guardaron los datos.");
 
@@ -1107,37 +1138,37 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-         jButton6.setBackground(JColorChooser.showDialog(this, "SELECIONE UN COLOR", Color.yellow));
+        jButton6.setBackground(JColorChooser.showDialog(this, "SELECIONE UN COLOR", Color.yellow));
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
-    jButton7.setBackground(JColorChooser.showDialog(this, "SELECIONE UN COLOR", Color.yellow));
+        jButton7.setBackground(JColorChooser.showDialog(this, "SELECIONE UN COLOR", Color.yellow));
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
-       
-        ObjetoSeleccionado=(Objetos)CB_OBJETOS.getSelectedItem();
-                String Contra = JOptionPane.showInputDialog("Ingrese la contraseña");
+
+        ObjetoSeleccionado = (Objetos) CB_OBJETOS.getSelectedItem();
+        String Contra = JOptionPane.showInputDialog("Ingrese la contraseña");
         try {
             if (Contra.equals(ContraMaestra)) {
                 ObjetoSeleccionado.setTamano(Integer.parseInt(tamano1.getText()));
-       ObjetoSeleccionado.setCalidad(Integer.parseInt(calidad1.getText()));
-        ObjetoSeleccionado.setColor(jButton7.getBackground());
-        ObjetoSeleccionado.setDescripcion(Onjeto_Nombre1.getText());
-        //CB_Usuarios1.setSelectedItem(Seleccionado.getP()); 
-        ObjetoSeleccionado.setMarca(marca1.getText());
-               // ObjetoSeleccionado.setTamano(Integer.parseInt(tamano1.getText()));
-               // ObjetoSeleccionado.setCalidad(Integer.parseInt(calidad1.getText()));
+                ObjetoSeleccionado.setCalidad(Integer.parseInt(calidad1.getText()));
+                ObjetoSeleccionado.setColor(jButton7.getBackground());
+                ObjetoSeleccionado.setDescripcion(Onjeto_Nombre1.getText());
+                //CB_Usuarios1.setSelectedItem(Seleccionado.getP()); 
+                ObjetoSeleccionado.setMarca(marca1.getText());
+                // ObjetoSeleccionado.setTamano(Integer.parseInt(tamano1.getText()));
+                // ObjetoSeleccionado.setCalidad(Integer.parseInt(calidad1.getText()));
                 //ObjetoSeleccionado.setColor(jButton7.getBackground());
-               // ObjetoSeleccionado.setDescripcion(Onjeto_Nombre1.getText());
-               // ObjetoSeleccionado.setP(((Personas) CB_Usuarios1.getSelectedItem()));
+                // ObjetoSeleccionado.setDescripcion(Onjeto_Nombre1.getText());
+                // ObjetoSeleccionado.setP(((Personas) CB_Usuarios1.getSelectedItem()));
                 //ObjetoSeleccionado.setMarca(marca1.getText());
-                JOptionPane.showMessageDialog(this,"OBJETO ACTUALIZADO EXITOSAMENTE");
-                 Onjeto_Nombre1.setText("");
-                   marca1.setText("");
-                   tamano1.setText("");
-                   calidad1.setText("");
-                   jButton7.setBackground(Color.GRAY);
+                JOptionPane.showMessageDialog(this, "OBJETO ACTUALIZADO EXITOSAMENTE");
+                Onjeto_Nombre1.setText("");
+                marca1.setText("");
+                tamano1.setText("");
+                calidad1.setText("");
+                jButton7.setBackground(Color.GRAY);
             } else {
                 JOptionPane.showMessageDialog(this, "CONTRASEÑA INCORRECTA");
             }
@@ -1149,23 +1180,47 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8MouseClicked
 
     private void CB_OBJETOSItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CB_OBJETOSItemStateChanged
-        Objetos Seleccionado=( Objetos)CB_OBJETOS.getSelectedItem();
-        tamano1.setText(Seleccionado.getTamano()+"");
-        calidad1.setText(Seleccionado.getCalidad()+"");
+        Objetos Seleccionado = (Objetos) CB_OBJETOS.getSelectedItem();
+        tamano1.setText(Seleccionado.getTamano() + "");
+        calidad1.setText(Seleccionado.getCalidad() + "");
         jButton7.setBackground(Seleccionado.getColor());
         Onjeto_Nombre1.setText(Seleccionado.getDescripcion());
         //CB_Usuarios1.setSelectedItem(Seleccionado.getP()); 
         marca1.setText(Seleccionado.getMarca());
         if (Seleccionado instanceof Zapatos) {
             combotipo1.setSelectedIndex(0);
-        }else if (Seleccionado instanceof Ropa){
-              combotipo1.setSelectedIndex(1);
-        }else{
-             combotipo1.setSelectedIndex(2);
+        } else if (Seleccionado instanceof Ropa) {
+            combotipo1.setSelectedIndex(1);
+        } else {
+            combotipo1.setSelectedIndex(2);
         }
     }//GEN-LAST:event_CB_OBJETOSItemStateChanged
 
-   
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+       String Contra=JOptionPane.showInputDialog("INGRESE LA CONTRASEÑA");
+        if (Contra.equals(ContraMaestra)) {
+           
+        DefaultComboBoxModel Modelo = (DefaultComboBoxModel) CB_Usuarios2.getModel();
+  Modelo.removeElement(CB_Usuarios2.getSelectedItem());
+      //  CB_Usuarios2.removeItem(CB_Usuarios2.getSelectedItem());
+      CB_Usuarios2.setModel(Modelo);
+      JOptionPane.showMessageDialog(this,"CONTACTO ELIMINADO CON EXITO");
+            tf_Estadocivil1.setText("");
+            tf_trabajo1.setText("");
+            ocupacion1.setText("");
+            tf_nombre1.setText("");
+            tf_edad1.setText("");
+            tf_altura1.setText("");
+            CB_Familiares1.setSelectedIndex(0);
+            TF_Salario1.setText("");
+            TF_Horario1.setText("");
+            TF_tiempoT2.setText("");
+        }else{
+            JOptionPane.showMessageDialog(this,"CONTRASEÑA INCORRECTA");
+        }
+      
+    }//GEN-LAST:event_jButton9MouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1229,6 +1284,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1326,7 +1382,8 @@ private int Mama = 1;
     private Personas Destinatario;
     private Personas Emisor;
     private Objetos ObjetoSeleccionado;
-  public static void Codificar(String Mensaje1) {
+
+    public static void Codificar(String Mensaje1) {
         System.out.println("------CODIFICACION DE LOS DATOS------");
         String Mensaje = Mensaje1;
         String CESAR = EncriptadoCesar(Mensaje, 3);
@@ -1355,7 +1412,7 @@ private int Mama = 1;
         System.out.println("Descifrado FINAL: " + DESCES);
     }
 
-    public static String EncriptadoCesar(String msm,int Desplazamiento){
+    public static String EncriptadoCesar(String msm, int Desplazamiento) {
         StringBuilder cifrado = new StringBuilder();
         Desplazamiento = Desplazamiento % 26;
         for (int i = 0; i < msm.length(); i++) {
@@ -1375,7 +1432,7 @@ private int Mama = 1;
         }
         return cifrado.toString();
     }
-    
+
     public static String descifradoCesar(String texto, int codigo) {
         StringBuilder cifrado = new StringBuilder();
         codigo = codigo % 26;
@@ -1396,5 +1453,5 @@ private int Mama = 1;
         }
         return cifrado.toString();
     }
-    
+
 }
