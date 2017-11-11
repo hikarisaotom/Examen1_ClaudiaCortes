@@ -1088,6 +1088,11 @@ public class Principal extends javax.swing.JFrame {
             DefaultComboBoxModel Modelo = (DefaultComboBoxModel)  CB_OBJETOS.getModel();
             Modelo.addElement(O);
             CB_OBJETOS.setModel(Modelo);
+                   Onjeto_Nombre.setText("");
+                   marca.setText("");
+                   tamano.setText("");
+                   calidad.setText("");
+                   jButton6.setBackground(Color.GRAY);
         }else{
             JOptionPane.showMessageDialog(this,"Contraseña incorrecta");
         }
@@ -1110,22 +1115,35 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
-        String Contra = JOptionPane.showInputDialog("Ingrese la contraseña");
+       
+        ObjetoSeleccionado=(Objetos)CB_OBJETOS.getSelectedItem();
+                String Contra = JOptionPane.showInputDialog("Ingrese la contraseña");
         try {
             if (Contra.equals(ContraMaestra)) {
                 ObjetoSeleccionado.setTamano(Integer.parseInt(tamano1.getText()));
-                ObjetoSeleccionado.setCalidad(Integer.parseInt(calidad1.getText()));
-                ObjetoSeleccionado.setColor(jButton7.getBackground());
-                ObjetoSeleccionado.setDescripcion(Onjeto_Nombre1.getText());
-                ObjetoSeleccionado.setP(((Personas) CB_Usuarios1.getSelectedItem()));
-                ObjetoSeleccionado.setMarca(marca1.getText());
+       ObjetoSeleccionado.setCalidad(Integer.parseInt(calidad1.getText()));
+        ObjetoSeleccionado.setColor(jButton7.getBackground());
+        ObjetoSeleccionado.setDescripcion(Onjeto_Nombre1.getText());
+        //CB_Usuarios1.setSelectedItem(Seleccionado.getP()); 
+        ObjetoSeleccionado.setMarca(marca1.getText());
+               // ObjetoSeleccionado.setTamano(Integer.parseInt(tamano1.getText()));
+               // ObjetoSeleccionado.setCalidad(Integer.parseInt(calidad1.getText()));
+                //ObjetoSeleccionado.setColor(jButton7.getBackground());
+               // ObjetoSeleccionado.setDescripcion(Onjeto_Nombre1.getText());
+               // ObjetoSeleccionado.setP(((Personas) CB_Usuarios1.getSelectedItem()));
+                //ObjetoSeleccionado.setMarca(marca1.getText());
+                JOptionPane.showMessageDialog(this,"OBJETO ACTUALIZADO EXITOSAMENTE");
+                 Onjeto_Nombre1.setText("");
+                   marca1.setText("");
+                   tamano1.setText("");
+                   calidad1.setText("");
+                   jButton7.setBackground(Color.GRAY);
             } else {
                 JOptionPane.showMessageDialog(this, "CONTRASEÑA INCORRECTA");
             }
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Ocurrio un error y no se guardaron los datos.");
-
         }
 
     }//GEN-LAST:event_jButton8MouseClicked
