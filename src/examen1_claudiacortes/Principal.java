@@ -644,11 +644,17 @@ public class Principal extends javax.swing.JFrame {
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         CB_OBJETOS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        CB_OBJETOS.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                CB_OBJETOSItemStateChanged(evt);
+            }
+        });
         jPanel6.add(CB_OBJETOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 352, -1));
 
         jPanel6.add(CB_Usuarios1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 240, -1));
 
         combotipo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Zapato", "Ropa", "Objeto Hogar", " " }));
+        combotipo1.setEnabled(false);
         jPanel6.add(combotipo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, -1, -1));
 
         jLabel40.setText("Tipo");
@@ -805,7 +811,7 @@ public class Principal extends javax.swing.JFrame {
                     CB_Usuarios.setModel(Modelo);
                     CB_Usuarios2.setModel(Modelo);
                     CB_Usuarios3.setModel(Modelo);
-                     
+                     CB_Usuarios1.setModel(Modelo);
                      
                      
                     guardado = true;
@@ -1100,21 +1106,46 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
-        // TODO add your handling code here:
+    jButton7.setBackground(JColorChooser.showDialog(this, "SELECIONE UN COLOR", Color.yellow));
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
-     
-     String Contra=JOptionPane.showInputDialog("Ingrese la contraseña");
-        if (Contra.equals(ContraMaestra)) {
-             ObjetoSeleccionado.setTamano(Integer.parseInt(tamano1.getText()));
-             ObjetoSeleccionado.setCalidad(Integer.parseInt(calidad1.getText()));
-             ObjetoSeleccionado.setColor(jButton7.getBackground());
-             ObjetoSeleccionado.setDescripcion(Onjeto_Nombre1.getText());
-             ObjetoSeleccionado.setP(((Personas)CB_Usuarios1.getSelectedItem()));
+        String Contra = JOptionPane.showInputDialog("Ingrese la contraseña");
+        try {
+            if (Contra.equals(ContraMaestra)) {
+                ObjetoSeleccionado.setTamano(Integer.parseInt(tamano1.getText()));
+                ObjetoSeleccionado.setCalidad(Integer.parseInt(calidad1.getText()));
+                ObjetoSeleccionado.setColor(jButton7.getBackground());
+                ObjetoSeleccionado.setDescripcion(Onjeto_Nombre1.getText());
+                ObjetoSeleccionado.setP(((Personas) CB_Usuarios1.getSelectedItem()));
+                ObjetoSeleccionado.setMarca(marca1.getText());
+            } else {
+                JOptionPane.showMessageDialog(this, "CONTRASEÑA INCORRECTA");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Ocurrio un error y no se guardaron los datos.");
+
         }
-      
+
     }//GEN-LAST:event_jButton8MouseClicked
+
+    private void CB_OBJETOSItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CB_OBJETOSItemStateChanged
+        Objetos Seleccionado=( Objetos)CB_OBJETOS.getSelectedItem();
+        tamano1.setText(Seleccionado.getTamano()+"");
+        calidad1.setText(Seleccionado.getCalidad()+"");
+        jButton7.setBackground(Seleccionado.getColor());
+        Onjeto_Nombre1.setText(Seleccionado.getDescripcion());
+        //CB_Usuarios1.setSelectedItem(Seleccionado.getP()); 
+        marca1.setText(Seleccionado.getMarca());
+        if (Seleccionado instanceof Zapatos) {
+            combotipo1.setSelectedIndex(0);
+        }else if (Seleccionado instanceof Ropa){
+              combotipo1.setSelectedIndex(1);
+        }else{
+             combotipo1.setSelectedIndex(2);
+        }
+    }//GEN-LAST:event_CB_OBJETOSItemStateChanged
 
    
     public static void main(String args[]) {
