@@ -17,6 +17,15 @@ public class Objetos {
     protected String Marca;
     protected int tamano;
     protected int Calidad;
+protected Personas P;
+
+    public Personas getP() {
+        return P;
+    }
+
+    public void setP(Personas P) {
+        this.P = P;
+    }
 
     public Objetos() {
     super();
